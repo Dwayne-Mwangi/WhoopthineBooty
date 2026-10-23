@@ -122,11 +122,11 @@
     <header class="glass-panel sticky top-0 z-50 border-b border-slate-800/60 px-6 py-4">
         <div class="max-w-4xl mx-auto flex justify-between items-center">
             <div>
-                <h1 class="text-lg font-bold bg-gradient-to-r from-indigo-400 to-teal-300 bg-clip-text text-transparent">Medical Whooping | Virology Assessment</h1>
+                <h1 class="text-lg font-bold bg-gradient-to-r from-indigo-400 to-teal-300 bg-clip-text text-transparent">Medical Whooping | Anat Patho EXAM</h1>
                 <p class="text-xs text-slate-400">Ready?</p>
             </div>
             <div id="timer-badge" class="hidden px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-xs font-mono font-semibold">
-                ⏳ <span id="time-remaining">30:00</span>
+                ⏳ <span id="time-remaining">80:00</span>
             </div>
         </div>
     </header>
@@ -136,25 +136,25 @@
 
         <!-- REGISTRATION VIEW -->
         <div id="view-welcome" class="glass-panel p-8 sm:p-10 rounded-3xl shadow-2xl space-y-6 text-center">
-            <div class="w-16 h-16 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto text-indigo-400 text-2xl font-bold">
-                🩺
+            <div class="w-16 h-16 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl flex items-center justify-center mx-auto text-indigo-400 text-2xl font-bold bg-gradient-to-r from-indigo-400 to-teal-300 bg-clip-text text-transparent">
+                ☠️
             </div>
             
             <div class="space-y-3">
-                <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">Clinical Virology Assessment</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold text-rose-500 tracking-tight">Anatomical Patho EXAM</h2>
                 
                 <div class="typewriter-container">
                     <p class="typewriter-subtitle"></p>
                 </div>
 
-                <p class="text-slate-400 text-sm max-w-md mx-auto pt-1">Enter your credentials below to begin the assessment session. Responses are encrypted and saved directly to the google data sheet.</p>
+                <p class="text-slate-400 text-sm max-w-md mx-auto pt-1">Enter your credentials below to begin. Responses are saved directly to google data sheet, Halla if you need help.</p>
             </div>
 
             <div class="max-w-sm mx-auto space-y-4 pt-2">
                 <input type="text" id="student-name" placeholder="Full Name (e.g. Dwayne)" class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all">
                 <input type="text" id="student-id" placeholder="Registration Number (e.g. H12/...)" class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl px-4 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all">
                 <button onclick="startExam()" class="w-full bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-500 hover:to-indigo-400 text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-indigo-600/20 text-sm cursor-pointer">
-                    Initialize Assessment
+                    Breathe IN, Breathe OUT
                 </button>
             </div>
         </div>
@@ -163,7 +163,7 @@
         <div id="view-exam" class="hidden space-y-6">
             <!-- Progress Bar -->
             <div class="glass-card p-4 rounded-2xl flex items-center justify-between">
-                <span id="question-tracker" class="text-xs font-mono text-indigo-300 font-semibold uppercase tracking-wider">Question 1 of 4</span>
+                <span id="question-tracker" class="text-xs font-mono text-indigo-300 font-semibold uppercase tracking-wider">Question 1 of 58</span>
                 <div class="w-32 bg-slate-800 h-2 rounded-full overflow-hidden">
                     <div id="progress-bar" class="bg-indigo-500 h-full w-1/4 transition-all duration-300"></div>
                 </div>
@@ -191,12 +191,12 @@
                 ✓
             </div>
             <div class="space-y-2">
-                <h2 class="text-2xl font-bold text-white">Assessment Submitted Successfully</h2>
-                <p class="text-slate-400 text-sm">Your response payload has been securely recorded to the database registry.</p>
+                <h2 class="text-2xl font-bold text-white">EXAM Submitted Successfully</h2>
+                <p class="text-slate-400 text-sm">Your answers have been submitted and stored safely in Google Sheets for marking by Dante the GREAT. Coffee as you wait? </p>
             </div>
             <div class="glass-card p-4 rounded-2xl max-w-xs mx-auto text-left space-y-2 text-xs">
                 <div class="flex justify-between"><span class="text-slate-400">Candidate:</span> <span id="res-name" class="font-semibold text-white"></span></div>
-                <div class="flex justify-between"><span class="text-slate-400">Status:</span> <span class="text-emerald-400 font-semibold">Logged & Synchronized</span></div>
+                <div class="flex justify-between"><span class="text-slate-400">Status:</span> <span class="text-emerald-400 font-semibold">Logged & Stored</span></div>
             </div>
             <button onclick="location.reload()" class="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition-all cursor-pointer">
                 Close
@@ -214,212 +214,659 @@
         // REPLACE WITH YOUR PUBLISHED GOOGLE APPS SCRIPT WEB APP URL
         const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxXIIjkc6kBcivV7n-sgugRQVR7BqaKVnhvap7eRfAVBU8ckuFzRIb9YcaxArIdPzjI0Q/exec";
 
-       // DYNAMIC QUESTION BANK (HIV Clinical Virology Assessment)
-  // DYNAMIC QUESTION BANK (Full HIV Clinical Virology Assessment)
-    const examQuestions = [
-        // --- MCQs (1 to 9) ---
-        {
-            id: 1,
-            type: "mcq",
-            source: "[HIV Section Q1]",
-            question: "Regarding the structure and replication of human immunodeficiency virus (HIV), which one of the following is most accurate?",
-            options: [
-                "Viral mRNA is the template for the synthesis of the genome RNA.",
-                "During entry of HIV into the cell, the viral p24 protein interacts with the CD4 protein on the cell surface.",
-                "HIV contains an integrase within the virion that integrates copies of the viral genome into the progeny virions.",
-                "HIV has an enzyme in the virion that synthesizes double-stranded DNA using the single-stranded genome RNA as the template.",
-                "The HIV genome encodes a protease that cleaves cellular ribosomal proteins, resulting in the inhibition of cell-specific protein synthesis."
-            ],
-            answer: 3
-        },
-        {
-            id: 2,
-            type: "mcq",
-            source: "[HIV Section Q2]",
-            question: "Regarding clinical aspects of human immunodeficiency virus (HIV), which one of the following is most accurate?",
-            options: [
-                "During the primary infection with HIV, Pneumocystis pneumonia commonly occurs.",
-                "During the long asymptomatic period that can last for years, no HIV is synthesized.",
-                "During the period when many opportunistic infections occur, HIV usually cannot be detected in the blood.",
-                "The antibody response to a primary HIV infection usually is detected within 7 to 10 days after infection.",
-                "People with a high level of viral RNA in their plasma are more likely to have symptomatic AIDS (i.e., opportunistic infections) than those with low levels."
-            ],
-            answer: 4
-        },
-        {
-            id: 3,
-            type: "mcq",
-            source: "[HIV Section Q3]",
-            question: "Regarding the laboratory diagnosis of human immunodeficiency virus (HIV), which one of the following is most accurate?",
-            options: [
-                "The initial screening of blood for antibodies to HIV is done by the complement fixation test.",
-                "Viral load is the term used to describe the amount of infectious virus produced by the patient’s CD4-positive T lymphocytes in cell culture.",
-                "After infection with HIV, antibodies to the virus can be detected before the polymerase chain reaction (PCR) test can detect nucleic acids specific to HIV.",
-                "Because false-positive results occur in the screening test for HIV, a confirmatory test called the Western blot assay should be performed for those with a positive result on the screening test."
-            ],
-            answer: 3
-        },
-        {
-            id: 4,
-            type: "mcq",
-            source: "[HIV Section Q4]",
-            question: "Regarding the mode of action of drugs used in the treatment of human immunodeficiency virus (HIV) infection, which one of the following is most accurate?",
-            options: [
-                "Maraviroc acts by inhibiting the reverse transcriptase in the virion.",
-                "Raltegravir inhibits the integration of HIV DNA into host cell DNA.",
-                "Zidovudine is a nucleoside analog that inhibits messenger RNA (mRNA) synthesis of HIV.",
-                "Ritonavir acts by binding to the Tat protein, which prevents budding and release of the HIV virion.",
-                "Lamivudine is a “chain-terminating” drug because it inhibits the growing polypeptide chain by causing misreading of the viral mRNA."
-            ],
-            answer: 1
-        },
-        {
-            id: 5,
-            type: "mcq",
-            source: "[HIV Section Q5]",
-            question: "Regarding the adverse effects of drugs used in the treatment of human immunodeficiency virus (HIV) infection, which one of the following is most likely to cause bone marrow suppression?",
-            options: ["Lamivudine", "Lopinavir", "Nevirapine", "Maraviroc", "Zidovudine"],
-            answer: 4
-        },
-        {
-            id: 6,
-            type: "mcq",
-            source: "[HIV Section Q6]",
-            question: "Regarding the adverse effects of drugs used in the treatment of human immunodeficiency virus (HIV) infection, which one of the following is most likely to cause lipodystrophy (i.e., abnormal fat deposits)?",
-            options: ["Lamivudine", "Lopinavir", "Nevirapine", "Maraviroc", "Zidovudine"],
-            answer: 1
-        },
-        {
-            id: 7,
-            type: "mcq",
-            source: "[HIV Section Q7]",
-            question: "Regarding the adverse effects of drugs used in the treatment of human immunodeficiency virus (HIV) infection, which one of the following is most likely to cause Stevens-Johnson syndrome?",
-            options: ["Lamivudine", "Lopinavir", "Nevirapine", "Maraviroc", "Zidovudine"],
-            answer: 2
-        },
-        {
-            id: 8,
-            type: "mcq",
-            source: "[HIV Section Q8]",
-            question: "Which of the following modes of transmission of human immunodeficiency virus (HIV) occurs significantly MORE often than the others?",
-            options: ["Direct skin contact", "During childbirth", "Fecal oral route", "Respiratory aerosols"],
-            answer: 1
-        },
-        {
-            id: 9,
-            type: "mcq",
-            source: "[HIV Section Q9]",
-            question: "Your patient is a 25-year-old man who was just found to be infected with HIV based on a positive enzyme-linked immunosorbent assay (ELISA) and a positive Western blot test. His CD4 count is 125, and his viral load is 7000. He has not received any antiretroviral medications. Which one of the following is the best regimen to treat his infection?",
-            options: [
-                "Acyclovir, foscarnet, and ribavirin",
-                "Enfuvirtide, raltegravir, and maraviroc",
-                "Lamivudine, ribavirin, and ritonavir/lopinavir",
-                "Emtricitabine, tenofovir, efavirenz, and atazanavir plus ritonavir"
-            ],
-            answer: 3
-        },
-        // --- SPOTTERS ---
-        {
-            id: 10,
-            type: "image-spot",
-            source: "[Spot Review - Spot 1]",
-            question: "Identify the Virus indicated by the arrow.",
-            images: [
-                "HIV.jpeg"
-            ],
-            answer: ""
-        },
-        {
-            id: 11,
-            type: "image-spot",
-            source: "[Spot Review - Spot 2]",
-            question: "Identify the condition and what stage of HIV it is most predominantly seen in.",
-            images: [
-               "Lung Pneumo.jpeg"
-            ],
-            answer: ""
-        },
-        {
-            id: 12,
-            type: "image-spot",
-            source: "[Spot Review - Spot 3]",
-            question: "Identify the condition and state what stage of HIV it is most predominantly associated with.",
-            images: [
-               "Kaposi.jpeg"  
-        ],
-            answer: ""
-        },
-        // --- FILL IN THE GAPS (1 to 9) ---
-        {
-            id: 13,
-            type: "fib",
-            source: "[Fill in the Gaps - 1]",
-            question: "Cellular proteases cleave _________ polyproteins while viral proteases cleave structural & enzymatic polyproteins.",
-            answer: "cellular"
-        },
-        {
-            id: 14,
-            type: "fib",
-            source: "[Fill in the Gaps - 2]",
-            question: "Tat gene and _______ downregulate formation of MHC1 receptors in infected CD4 helper T cells.",
-            answer: "nef"
-        },
-        {
-            id: 15,
-            type: "fib",
-            source: "[Fill in the Gaps - 3]",
-            question: "CD4+ helper T cells secretes Lymphokines like ________ that stimulate activation of CD8+ T cell assassins.",
-            answer: "interleukin-2"
-        },
-        {
-            id: 16,
-            type: "fib",
-            source: "[Fill in the Gaps - 4]",
-            question: "________&_______ genes are involved in viral replication of HIV.",
-            answer: "tat"
-        },
-        {
-            id: 17,
-            type: "fib",
-            source: "[Fill in the Gaps - 5]",
-            question: "While a patient with CCR5 delta 32 mutation is resistant to HIV infections, they are totally exposed to which arbovirus? _____________",
-            answer: "west nile virus"
-        },
-        {
-            id: 18,
-            type: "fib",
-            source: "[Fill in the Gaps - 6]",
-            question: "Which herpes virus competes actively with HIV GP120 for the CD4+ receptor? ___________",
-            answer: "human herpesvirus 6"
-        },
-        {
-            id: 19,
-            type: "fib",
-            source: "[Fill in the Gaps - 7]",
-            question: "What is the main site of ongoing HIV infection where Clinical/False Latency takes place?___________",
-            answer: "lymph nodes"
-        },
-        {
-            id: 20,
-            type: "fib",
-            source: "[Fill in the Gaps - 8]",
-            question: "What subset of CD4+ cells does HIV also infect? ___________ (Follow up: what do they secrete?________________)",
-            answer: "macrophages"
-        },
-        // --- SAQ & ACTIVE RECALL ---
-        {
-            id: 21,
-            type: "oral-viva",
-            source: "[SAQ & Active Recall]",
-            question: "SAQ: Explain the structure & replication of HIV-1. (10 marks)",
-            answer: ""
-        }
-    ];
+       // DYNAMIC QUESTION BANK (ANAT PATHO EXAM)
 
-    let currentIdx = 0;
+    const examQuestions = [
+    {
+        id: 1,
+        type: "mcq",
+        question: "A 48-year-old woman has a malignant lymphoma involving lymph nodes in the para-aortic region. She is treated with a chemotherapeutic agent which results in the loss of neoplastic cells through fragmentation of individual cell nuclei and cytoplasm. Over the next 2 months, the lymphoma decreases in size, as documented on abdominal CT scans. By which of the following mechanisms has her neoplasm primarily responded to therapy?",
+        options: [
+            "Coagulative necrosis",
+            "Mitochondrial poisoning",
+            "Phagocytosis",
+            "Acute inflammation",
+            "Apoptosis"
+        ],
+        answer: 4
+    },
+    {
+        id: 2,
+        type: "mcq",
+        question: "A 53-year-old man has had severe chest pain for the past 6 hours. On physical examination he is afebrile, but has tachycardia. Laboratory studies show a serum troponin I of 10 ng/mL. A coronary angiogram is performed emergently and reveals >90% occlusion of the anterior interventricular (left anterior descending) artery. In this setting, an irreversible injury to myocardial fibers will have occurred when which of the following cellular changes occurs?",
+        options: [
+            "Glycogen stores are depleted",
+            "Cytoplasmic sodium increases",
+            "Nuclei undergo karyorrhexis",
+            "Intracellular pH diminishes",
+            "Blebs form on cell membranes"
+        ],
+        answer: 2
+    },
+    {
+        id: 3,
+        type: "mcq",
+        question: "While in a home improvement center warehouse buying paint, a 35-year-old man hears 'Look out below!' and is then struck on the leg by a falling pallet rack, which strikes him on his left leg in the region of his thigh. The skin is not broken. Within 2 days there is a 5 x 7 cm purple colour to the site of injury. Which of the following substances has most likely accumulated at the site of injury to produce a yellow-brown colour at the site of injury 16 days later?",
+        options: [
+            "Lipofuscin",
+            "Bilirubin",
+            "Melanin",
+            "Hemosiderin",
+            "Glycogen"
+        ],
+        answer: 3
+    },
+    {
+        id: 4,
+        type: "mcq",
+        question: "A 54-year-old man with a chronic cough has a squamous cell carcinoma diagnosed in his right lung. While performing a pneumonectomy, the thoracic surgeon notes that the hilar lymph nodes are small, 0.5 to 1.0 cm in size, and jet black in colour throughout. Which of the following is the most likely cause for this appearance to the hilar nodes?",
+        options: [
+            "Anthracotic pigment",
+            "Lipochrome deposits",
+            "Melanin accumulation",
+            "Hemosiderosis",
+            "Metastatic carcinoma"
+        ],
+        answer: 0
+    },
+    {
+        id: 5,
+        type: "mcq",
+        question: "A 50-year-old woman with a history of unstable angina suffers an acute myocardial infarction. Thrombolytic therapy with tissue plasminogen activator (tPA) is administered to restore coronary blood flow. In spite of this therapy, the extent of myocardial fiber injury may increase because of which of the following cellular abnormalities?",
+        options: [
+            "Cytoskeletal intermediate filament loss",
+            "Decreased intracellular pH from anaerobic glycolysis",
+            "Increased free radical formation",
+            "Mitochondrial swelling",
+            "Nuclear chromatin clumping",
+            "Reduced protein synthesis"
+        ],
+        answer: 2
+    },
+    {
+        id: 6,
+        type: "mcq",
+        question: "A 12-year-old boy has had multiple episodes of ear pain accompanied by fever. On examination his right tympanic membrane is red and bulging with yellow exudate. Laboratory studies of the exudate show culture positive for Hemophilus influenzae. A year later he has conductive hearing loss on the right, and a head CT scan shows a mass in the right middle ear. Which of the following materials is most likely to be seen in the tissue curetted from his middle ear?",
+        options: [
+            "Lipofuscin pigment",
+            "Russell bodies",
+            "Neutrophil granules",
+            "Cholesterol crystals",
+            "Anthracotic pigment"
+        ],
+        answer: 3
+    },
+    {
+        id: 7,
+        type: "text",
+        inputType: "textarea",
+        question: "Differentiate between Harmatoma and Choristoma (2 marks)",
+        answer: ""
+    },
+    {
+        id: 8,
+        type: "mcq",
+        question: "A 71-year-old woman had loss of consciousness persisting for over an hour. When she becomes arousable, she cannot speak nor move her right arm. A cerebral angiogram reveals an occlusion to her left middle cerebral artery. Three months later, a computed tomographic (CT) scan shows a large 5 cm cystic area in her left parietal lobe cortex. This CT finding is most likely the consequence of resolution from which of the following pathologic cellular events?",
+        options: [
+            "Liquefactive necrosis",
+            "Atrophy",
+            "Coagulative necrosis",
+            "Caseous necrosis",
+            "Apoptosis"
+        ],
+        answer: 0
+    },
+    {
+        id: 9,
+        type: "mcq",
+        question: "A 19-year-old woman gives birth to her first child. She begins breast feeding the infant. She continues breast feeding for almost a year with no difficulties and no complications. Which of the following cellular processes that began in the breast during pregnancy allowed her to nurse the infant for this period of time?",
+        options: [
+            "Stromal hypertrophy",
+            "Epithelial dysplasia",
+            "Steatocyte atrophy",
+            "Ductal epithelial metaplasia",
+            "Lobular hyperplasia"
+        ],
+        answer: 4
+    },
+    {
+        id: 10,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 4 examples of hypertrophy and 5 examples of Hyperplasia (physiological and pathological) in the human body (8 marks)",
+        answer: ""
+    },
+    {
+        id: 11,
+        type: "mcq",
+        question: "An 84-year-old man dies from complications of Alzheimer disease. At autopsy, his heart is small (250 gm) and dark brown on sectioning. Microscopically, there is light brown perinuclear pigment with H&E staining of the cardiac muscle fibers. Which of the following substances is most likely increased in the myocardial fibers to produce this appearance of his heart?",
+        options: [
+            "Hemosiderin from iron overload",
+            "Lipochrome from 'wear and tear'",
+            "Glycogen from a storage disease",
+            "Cholesterol from atherosclerosis",
+            "Calcium deposition following necrosis"
+        ],
+        answer: 1
+    },
+    {
+        id: 12,
+        type: "mcq",
+        question: "In an experiment, a series of immunohistochemical stains are employed to identify different cellular components. One particular stain identifies the presence of intermediate filaments within cells. This cytokeratin stain is most likely to be useful for which of the following diagnostic purposes?",
+        options: [
+            "Cytoskeletal alterations indicate impending cell death",
+            "A neoplasm is determined to be a carcinoma",
+            "Contractile properties of the cells can be assessed",
+            "A history of chronic alcoholism can be confirmed",
+            "The degree of metaplasia or dysplasia can be assessed"
+        ],
+        answer: 1
+    },
+    {
+        id: 13,
+        type: "mcq",
+        question: "A 29-year-old man goes on a snorkeling trip to Low Key Marine Sanctuary and later spends time on the beach at El-Sun-yeah. The next day he has a darker complexion. His skin does not show warmth, erythema, or tenderness. His skin tone fades to its original appearance within a month. Which of the following substances contributes the most to the biochemical process leading to these skin changes?",
+        options: [
+            "Iron oxide",
+            "Lipofuscin",
+            "Tyrosine",
+            "Homogentisic acid",
+            "Glycogen"
+        ],
+        answer: 2
+    },
+    {
+        id: 14,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ - (TRUE/FALSE) Every single person on this earth has the same amount of melanocyte count? Defend your answer. (3 marks)",
+        answer: ""
+    },
+    {
+        id: 15,
+        type: "mcq",
+        question: "A study is performed to identify predisposing risks for tissue cellular changes. In some persons epithelial metaplasia occurs. In which of the following situations is the process of epithelial metaplasia most likely to take place?",
+        options: [
+            "Tanning of the skin following sunlight exposure",
+            "Lactation following pregnancy",
+            "Vitamin A deficiency",
+            "Acute myocardial infarction",
+            "Urinary obstruction from an enlarged prostate"
+        ],
+        answer: 2
+    },
+    {
+        id: 16,
+        type: "mcq",
+        question: "A 29-year-old man has malaise for a month. On examination his skin is icteric. Laboratory studies show AST 80 U/L and ALT 125 U/L. His disease process leads to scattered loss of individual cells, with the microscopic appearance of karyorrhexis and cell fragmentation. The overall tissue structure remains intact. His findings are most typical for which of the following diseases?",
+        options: [
+            "Viral hepatitis",
+            "Brown atrophy of the heart",
+            "Renal transplant rejection",
+            "Chronic alcoholic liver disease",
+            "Barbiturate overdose"
+        ],
+        answer: 0
+    },
+    {
+        id: 17,
+        type: "mcq",
+        question: "A 60-year-old woman has noted a dark red-black appearance to her great toe and second and third toes of her left foot for the past month. On physical examination, the toes are cold and have no sensation to touch. The dorsalis pedis and posterior tibial pulses are not palpable on the left. A transmetatarsal amputation is performed. These findings are most typical for a patient with which of the following conditions?",
+        options: [
+            "Diabetes mellitus",
+            "Gout",
+            "Blunt force trauma",
+            "AIDS",
+            "Rheumatoid arthritis"
+        ],
+        answer: 0
+    },
+    {
+        id: 18,
+        type: "mcq",
+        question: "An 18-year-old primigravida measures 18 weeks' gestation on examination. Ultrasound examination shows a uniformly enlarged uterus. Which of the following cellular changes leads to this increase in uterus?",
+        options: [
+            "Myometrial hypertrophy",
+            "Endometrial hyperplasia",
+            "Fatty infiltration",
+            "Endometrial metaplasia",
+            "Inflammatory cell infiltration"
+        ],
+        answer: 0
+    },
+    {
+        id: 19,
+        type: "mcq",
+        question: "An 17-year-old adolescent receives whole body radiation as part of a preparatory regimen for bone marrow transplantation to treat acute lymphocytic leukemia. Which of the following cells and tissues in the body is most likely to remain unaltered by the effects of this therapeutic radiation?",
+        options: [
+            "Epidermal stem cells",
+            "Small intestinal epithelium",
+            "Erythropoietic cells of bone marrow",
+            "Spermatogonia of testicular tubules",
+            "Neurons of cerebral cortex"
+        ],
+        answer: 4
+    },
+    {
+        id: 20,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Explain the law of Bergonie & Tribondeau in relation Radiation Injury Topic (2 marks)",
+        answer: ""
+    },
+    {
+        id: 21,
+        type: "text",
+        inputType: "input",
+        question: "Fill in the blank – Which cell is specifically the text-book example of an exception to the Law of Bergonie and Tribondeau? (1 mark)",
+        answer: ""
+    },
+    {
+        id: 22,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 3 salient features almost all radiation injured cells present with (3 marks)",
+        answer: ""
+    },
+    {
+        id: 23,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Distinguish between Gray(Gy) and Sievert (Sv) in Radiation injury (2 marks)",
+        answer: ""
+    },
+    {
+        id: 24,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 2 examples of Low Linear Energy Transfer (LET) and 2 examples of Particulate radiation (4 marks)",
+        answer: ""
+    },
+    {
+        id: 25,
+        type: "mcq",
+        question: "A 79-year-old man has a large myocardial infarction involving much of the left ventricular free wall. He develops congestive heart failure (CHF) with decreased cardiac output. Now, a year later, his CHF is worsening. By echocardiography there is a large, bulging akinetic area typical for a left ventricular aneurysm. Which of the following laboratory tests on serum would best indicate poor peripheral tissue perfusion in this patient?",
+        options: [
+            "Elevated troponin I",
+            "Increased sodium",
+            "Elevated lactate",
+            "Increased hematocrit",
+            "Increased sedimentation rate"
+        ],
+        answer: 2
+    },
+    {
+        id: 26,
+        type: "mcq",
+        question: "A 22-year-old woman has a congenital anemia. She has required multiple transfusions of red blood cells for many years. She now has a darker bronze colour to her skin on physical examination. Which of the following microscopic findings would most likely present in her liver?",
+        options: [
+            "Steatosis in hepatocytes",
+            "Bilirubin in canaliculi",
+            "Hemosiderin in hepatocytes",
+            "Glycogen in hepatocytes",
+            "Amyloid in portal triads"
+        ],
+        answer: 2
+    },
+    {
+        id: 27,
+        type: "mcq",
+        question: "A 20-year-old man is involved in a motor vehicle accident which results in multiple blunt trauma and lacerations to his lower extremities. The left femoral artery is lacerated, and he incurs extensive blood loss and remains hypotensive for 2 hours during transport to the emergency department. On admission, his hematocrit is 12%. Which of the following tissues is most likely to withstand the impact of these events with the least damage?",
+        options: [
+            "Skeletal muscle",
+            "Intestinal epithelium",
+            "Retina",
+            "Cerebral cortex",
+            "Renal tubules"
+        ],
+        answer: 0
+    },
+    {
+        id: 28,
+        type: "mcq",
+        question: "A 40-year-old woman has the sudden onset of severe abdominal pain. On physical examination she has diffuse tenderness in all abdominal quadrants, with marked guarding and muscular rigidity. She has laboratory findings that include serum AST of 43 U/L, ALT of 30 U/L, LDH 630 U/L, and lipase 415 U/L. An abdominal CT scan reveals peritoneal fluid collections and decreased attenuation along with enlargement of the pancreas. Which of the following cellular changes is most likely to accompany these findings?",
+        options: [
+            "Coagulative necrosis",
+            "Wet gangrene",
+            "Enzymatic Fat necrosis",
+            "Ischemic Enteritis",
+            "Non-enzymatic fat necrosis"
+        ],
+        answer: 2
+    },
+    {
+        id: 29,
+        type: "mcq",
+        question: "A 35-year-old woman has developed increasing icterus over the last week. On exam her liver span is increased. Laboratory studies show hyperammonemia. Abdominal CT scan shows a liver twice normal size with markedly reduced attenuation. These changes in her liver most likely resulted from which of the following conditions?",
+        options: [
+            "Galactosemia",
+            "Hemochromatosis",
+            "Tuberculosis",
+            "Alcoholism",
+            "Hypoxemia"
+        ],
+        answer: 3
+    },
+    {
+        id: 30,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 4 intracellular hyaline bodies and describe each briefly (8 marks)",
+        answer: ""
+    },
+    {
+        id: 31,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 2 hemoglobin derived endogenous pigments (2 marks)",
+        answer: ""
+    },
+    {
+        id: 32,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – State any 3 carcinomas related to Psammoma bodies (3 marks)",
+        answer: ""
+    },
+    {
+        id: 33,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Differentiate between metastatic and dystrophic calcifications (4 marks)",
+        answer: ""
+    },
+    {
+        id: 34,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 4 causes of metastatic calcification (4 marks)",
+        answer: ""
+    },
+    {
+        id: 35,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ - 4 regions in the body metastatic calcification primarily occurs in (4 marks)",
+        answer: ""
+    },
+    {
+        id: 36,
+        type: "mcq",
+        question: "The lifestyle patterns of healthy persons from 20 to 30 years of age are studied. A subset of these persons have a lifestyle characterized by consumption of a lot of SMOCHA and very little physical exercise. Which of the following tissue changes is most likely to develop in this subset of persons as a consequence of this lifestyle?",
+        options: [
+            "Intracellular accumulation of triglycerides in hepatocytes",
+            "Stromal infiltration of mature lipocytes within myocardial interstitium",
+            "Hyperplasia of unilocular adipocytes",
+            "Hypertrophy of multilocular adipocytes",
+            "Hypertrophy of unilocular adipocytes"
+        ],
+        answer: 4
+    },
+    {
+        id: 37,
+        type: "mcq",
+        question: "A 30-year-old ingests a large amount of acetaminophen and 12 hours later develops malaise and abdominal pain. Laboratory studies show an elevated ALT. N-acetylcysteine is administered to aid in generation of which of the following enzymes within cells as a protective mechanism to reduce the number of free radicals?",
+        options: [
+            "Glutathione peroxidase",
+            "Catalase",
+            "Hydrogen peroxide",
+            "NADPH oxidase",
+            "Myeloperoxidase"
+        ],
+        answer: 0
+    },
+    {
+        id: 38,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Name 3 examples of Oxygen derived ROS and 2 examples of Nitrogen derives ROS (5 marks)",
+        answer: ""
+    },
+    {
+        id: 39,
+        type: "text",
+        inputType: "textarea",
+        question: "SAQ – Describe mechanisms used to reduce ROS (4 marks)",
+        answer: ""
+    },
+    {
+        id: 40,
+        type: "text",
+        inputType: "input",
+        question: "Fill in the blank – Respiratory burst occurs in which cell types? (1 mark)",
+        answer: ""
+    },
+    {
+        id: 41,
+        type: "mcq",
+        question: "A 38-year-old man incurs a traumatic blow to his upper left arm. He continues to have pain and tenderness even after 3 months have passed. A plain film radiograph reveals a 4 cm circumscribed mass in the soft tissue adjacent to the humerus. The mass contains peripheral areas of brightness on the x-ray. Over the next year this mass gradually resolves. Which of the following terms best describes the changes described?",
+        options: [
+            "Dysplasia",
+            "Hyperplasia",
+            "Hypertrophy",
+            "Metaplasia",
+            "Neoplasia"
+        ],
+        answer: 3
+    },
+    {
+        id: 42,
+        type: "mcq",
+        question: "A 31-year-old primigravida has a difficult delivery of a term infant, with loss of 1500 cc of blood. She has hypotension for 6 hours. Over the next month, her ACTH level decreases. Within the next 3 months, her adrenal glands become decreased in size. This alteration of the adrenals is primarily due to which of the following cellular processes?",
+        options: [
+            "Metaplasia",
+            "Gene mutation",
+            "Apoptosis",
+            "Autophagocytosis",
+            "Coagulative necrosis"
+        ],
+        answer: 3
+    },
+    {
+        id: 43,
+        type: "mcq",
+        question: "A 48-year-old man has a history of chronic alcohol use. He is still able to perform work at his job. He has had no major illnesses. On physical examination, there are no significant findings. Laboratory studies show a serum albumin of 4.1 g/dL, ALT 30 U/L, AST 50 U/L, and total bilirubin 1.1 mg/dL. His serum carbohydrate deficient transferrin is increased. Which of the following microscopic findings in his liver is most likely to be present?",
+        options: [
+            "Cholestasis",
+            "Fatty change",
+            "Hemochromatosis",
+            "Hypertrophy of smooth endoplasmic reticulum",
+            "Coagulative necrosis"
+        ],
+        answer: 1
+    },
+    {
+        id: 44,
+        type: "mcq",
+        question: "A 30-year-old woman is claiming in a civil lawsuit that her husband has abused her for the past year. A workup by her physician reveals a 2 cm left breast mass that is irregular and firm on palpation. There is no lymphadenopathy. No skin lesions are seen, other than a bruise to her upper arm. A needle biopsy of the breast mass is performed. This biopsy result is most consistent with which of the following etiologies?",
+        options: [
+            "Physiologic hyperplasia",
+            "Fat necrosis",
+            "Lactational change",
+            "Radiation damage",
+            "Hypoxic injury"
+        ],
+        answer: 1
+    },
+    {
+        id: 45,
+        type: "mcq",
+        question: "A 44-year-old woman has had congestive heart failure for the past 4 years. She develops a fever that persists for over a week. On physical examination, a heart murmur is present. Her temperature is 38.4°C. Laboratory studies show a blood culture positive for Streptococcus, viridans group. An echocardiogram reveals a 1 cm vegetation on the superior aspect of her mitral valve. Which of the following pathologic changes is most likely present in her mitral valve?",
+        options: [
+            "Passive congestion",
+            "Necrosis",
+            "Extensive edema",
+            "Granulomatous inflammation",
+            "Dystrophic calcification"
+        ],
+        answer: 1
+    },
+    {
+        id: 46,
+        type: "mcq",
+        question: "An 18-year old G2 P1 woman has an amniocentesis performed at 17 weeks gestation. Fibroblasts recovered from amniocentesis are grown in culture to assess the karyotype of fetal cells. These cells are subcultured for additional experimental work, but the culture is lost after 50 doublings of the cells has occurred, and the fibroblasts no longer grow. Which of the following factors affecting these cells is most likely demonstrated by this phenomenon?",
+        options: [
+            "Nutrition",
+            "Mutation",
+            "Apoptosis",
+            "Aging",
+            "Oxidation"
+        ],
+        answer: 3
+    },
+    {
+        id: 47,
+        type: "mcq",
+        question: "A 54-year-old man has sudden onset of severe, sharp chest pain with diaphoresis and dyspnea. On physical examination he has tachycardia with an irregular heart rhythm. Electrocardiographic changes suggest the possibility of focal myocardial damage involving the left lateral ventricular wall. Which of the following laboratory tests on the patient's serum is most useful in this situation?",
+        options: [
+            "Total cholesterol",
+            "Troponin I",
+            "Triglyceride",
+            "Lipase",
+            "Sedimentation rate"
+        ],
+        answer: 1
+    },
+    {
+        id: 48,
+        type: "mcq",
+        question: "A 56-year-old woman has smoked 2 packs of cigarettes per day for the past 35 years. She has had a chronic cough for the past 8 years, but recently has noted increased sputum production. On physical examination she has a few crackles auscultated best over the lung bases. Bronchoscopy with biopsy is performed. The biopsy reveals bronchial epithelium with squamous metaplasia. Which of the following statements represents the best interpretation of these findings?",
+        options: [
+            "Physiologic process of aging",
+            "Irreversible, even if she stops smoking",
+            "Metastases to the lung",
+            "Risk for infection",
+            "Thromboembolism with infarction"
+        ],
+        answer: 3
+    },
+    {
+        id: 49,
+        type: "mcq",
+        question: "An experiment is conducted to determine if cell membrane injury is lessened by the effects of vitamin E ingestion. Which of the following cellular components is primarily involved in generation of lipid peroxides, the formation of which is inhibited by the vitamin E?",
+        options: [
+            "Glutathione",
+            "Ionized calcium",
+            "Lactate",
+            "Ferric iron",
+            "Lipase"
+        ],
+        answer: 3
+    },
+    {
+        id: 50,
+        type: "mcq",
+        question: "A 35-year-old woman has had headaches and abdominal pain worsening for 3 months. There are no remarkable physical examination findings. On radionucleide scanning of the neck, she is found to have a mass involving one of her parathyroid glands. An abdominal CT scan suggests extensive nephrocalcinosis along with urinary tract calculi. Which of the following laboratory test findings is most likely to accompany her disease?",
+        options: [
+            "CO2 of 30 mmol/L",
+            "Phosphorus of 2.2 mg/dL",
+            "Uric acid of 15.1 mg/dL",
+            "Sodium of 121 mmol/L",
+            "Albumin of 3.5 g/dL"
+        ],
+        answer: 1
+    },
+    {
+        id: 51,
+        type: "mcq",
+        question: "A 38-year-old man has a health screening examination. He has a routine chest x-ray that shows a 2 cm nodule in the right lower lobe. The nodule has focal calcifications. A wedge resection of lung with the nodule is performed. On microscopic examination the nodule shows caseous necrosis and calcification. Which of the following processes best explains the appearance of the calcium deposition in his lung nodule?",
+        options: [
+            "Dystrophic calcification",
+            "Apoptosis",
+            "Hypercalcemia",
+            "Metastatic calcification",
+            "Excessive ingestion of calcium"
+        ],
+        answer: 0
+    },
+    {
+        id: 52,
+        type: "mcq",
+        question: "A 3-year-old child has been diagnosed with ornithine transcarbamylase deficiency and has developed hepatic failure. The left lobe of an adult donor liver is used as an orthotopic transplant. A year later, the size of each liver in donor and recipient is greater than at the time of transplantation. Which of the following cellular alterations is most likely to explain this phenomenon?",
+        options: [
+            "Metaplasia",
+            "Dysplasia",
+            "Hyperplasia",
+            "Anaplasia",
+            "Hypertrophy"
+        ],
+        answer: 2
+    },
+    {
+        id: 53,
+        type: "mcq",
+        question: "A cellular mutation results in transcription with translation of a protein that does not fold properly. The misfolded protein remains within the cell and is not excreted. Activation of which of the following cytoplasmic enzymes is most likely to occur?",
+        options: [
+            "Caspase",
+            "Glutathione peroxidase",
+            "NADPH oxidase",
+            "Ribonuclease",
+            "Telomerase"
+        ],
+        answer: 0
+    },
+    {
+        id: 54,
+        type: "mcq",
+        question: "A 45-year-old man has noted scleral icterus for the past 4 days. He has been feeling tired and 'run down' for a month. On physical examination, other than mild tachycardia, his vital signs are normal. No other physical examination findings are noted other than scleral icterus. Laboratory studies show a hematocrit of 25%. Which of the following conditions is most likely to account for these findings?",
+        options: [
+            "Systemic hypertension",
+            "Excessive iron absorption",
+            "Diabetes mellitus, type I",
+            "Intravascular hemolysis",
+            "Pulmonary squamous cell carcinoma"
+        ],
+        answer: 3
+    },
+
+    // --- SPOTTERS ---
+    {
+        id: 55,
+        type: "image-spot",
+        source: "[Pathology Spotter - Spot 1]",
+        question: "Identify A and B in the provided histology image.",
+        images: ["Mallory x Russell.png"],
+        answer: ""
+    },
+    {
+        id: 56,
+        type: "image-spot",
+        source: "[Pathology Spotter - Spot 2]",
+        question: "Identify the pathological process and characteristic feature shown.",
+        images: ["Monckenberg.png"],
+        answer: ""
+    },
+     {
+        id: 57,
+        type: "image-spot",
+        source: "[Pathology Spotter - Spot 3]",
+        question: "Identify the pathological process and characteristic feature shown.",
+        images: ["Psammoma.jpeg"],
+        answer: ""
+    },
+    {
+        id: 57,
+        type: "image-spot",
+        source: "[Pathology Spotter - Spot 3]",
+        question: "Identify the microscopic structure and associated clinical significance shown.",
+        images: ["spot3.jpeg"],
+        answer: ""
+    },
+
+    // --- GRAND FINALE: VOICE-ONLY ACTIVE RECALL ---
+    {
+        id: 58,
+        type: "voice-only",
+        source: "[Grand Oral Viva / Active Recall]",
+        question: "Seamlessly explain the comprehensive progression of cell injury and pathology: Start from the clinical presentation of hypoxia, trace how the cell undergoes adaptation, transition into reversible cell injury (stating its key characteristics), progress to irreversible cell injury (explaining both apoptosis and necrosis in detail), and finally connect these concepts to pathologic and intracellular accumulations. (Verbal explanation required)",
+        answer: ""
+    }
+];
+
+   let currentIdx = 0;
     let studentData = { name: "", id: "", answers: {} };
     let timerInterval = null;
-    let timeLeft = 35 * 60; // 35 minutes in seconds
+    let timeLeft = 80 * 60; // 90 minutes in seconds
 
     let mediaRecorder = null;
     let audioChunks = [];
@@ -466,7 +913,7 @@
 
         let html = `
             <div class="space-y-2">
-                <span class="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">${q.source}</span>
+                <span class="text-xs font-mono text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">${q.source || 'Anatomical Pathology Assessment'}</span>
                 <h3 class="text-base sm:text-lg font-semibold text-white pt-2">${q.question}</h3>
             </div>
         `;
@@ -483,34 +930,43 @@
                 `;
             });
             html += `</div>`;
-       } else if(q.type === 'image-spot') {
+        } else if(q.type === 'image-spot') {
             const savedVal = studentData.answers[q.id] || '';
+            const imgSrc = q.images && q.images.length > 0 ? q.images[0] : '';
             html += `
                 <div class="pt-2 pb-4 flex justify-center bg-slate-900/40 border border-slate-800/80 rounded-2xl p-3 mb-3 shadow-inner">
-                    <img src="${q.images[0]}" class="rounded-xl border border-slate-700/50 w-full h-auto max-h-[420px] object-contain shadow-md">
+                    <img src="${imgSrc}" class="rounded-xl border border-slate-700/50 w-full h-auto max-h-[420px] object-contain shadow-md">
                 </div>
                 <textarea rows="3" oninput="saveAnswer(${q.id}, this.value)" placeholder="Type your structured clinical evaluation here..." class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all">${savedVal}</textarea>
             `;
-
-        } else if(q.type === 'fib') {
+        } else if(q.type === 'fib' || q.type === 'text') {
             const savedVal = studentData.answers[q.id] || '';
-            html += `
-                <div class="pt-4 pb-2">
-                    <input type="text" id="fib-ans" value="${savedVal}" placeholder="Type your answer here..." class="w-full bg-slate-900 border border-slate-700 px-4 py-3 rounded-xl text-indigo-300 font-bold text-sm focus:outline-none focus:border-indigo-500">
-                </div>
-            `;
-        } else if(q.type === 'oral-viva') {
+            const isSingleLine = q.inputType === 'input';
+            if(isSingleLine) {
+                html += `
+                    <div class="pt-4 pb-2">
+                        <input type="text" id="fib-ans" value="${savedVal}" placeholder="Type your answer here..." class="w-full bg-slate-900 border border-slate-700 px-4 py-3 rounded-xl text-indigo-300 font-bold text-sm focus:outline-none focus:border-indigo-500">
+                    </div>
+                `;
+            } else {
+                html += `
+                    <div class="pt-4 pb-2">
+                        <textarea rows="4" id="fib-ans" placeholder="Type your detailed SAQ response here..." class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all" oninput="saveAnswer(${q.id}, this.value)">${savedVal}</textarea>
+                    </div>
+                `;
+            }
+        } else if(q.type === 'oral-viva' || q.type === 'voice-only') {
             const savedText = typeof studentData.answers[q.id] === 'string' && !studentData.answers[q.id].startsWith('data:audio') ? studentData.answers[q.id] : '';
             const hasVoice = typeof studentData.answers[q.id] === 'string' && studentData.answers[q.id].startsWith('data:audio');
 
             html += `
-                <div class="glass-card p-5 rounded-2xl space-y-4 border border-indigo-500/20">
+                <div class="glass-card p-5 rounded-2xl space-y-4 border border-indigo-500/25">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center space-x-3">
                             <span class="text-2xl">🎙️</span>
                             <div>
-                                <h4 class="text-sm font-bold text-white">Active Recall & SAQ Response</h4>
-                                <p class="text-xs text-slate-400">Record your voice explanation, or type your response below.</p>
+                                <h4 class="text-sm font-bold text-white">Active Recall & Oral Viva Response</h4>
+                                <p class="text-xs text-slate-400">Record your voice explanation, and/or type your response below.</p>
                             </div>
                         </div>
                     </div>
@@ -527,7 +983,7 @@
 
                     <div class="space-y-1.5 pt-1">
                         <label class="text-xs text-slate-400 font-medium">Or type your written explanation:</label>
-                        <textarea rows="3" oninput="saveAnswer(${q.id}, this.value)" placeholder="Type your detailed explanation here..." class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl p-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all">${savedText}</textarea>
+                        <textarea rows="4" oninput="saveAnswer(${q.id}, this.value)" placeholder="Type your detailed explanation here..." class="w-full bg-slate-900/80 border border-slate-700/60 rounded-xl p-3.5 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-all">${savedText}</textarea>
                     </div>
                 </div>
             `;
@@ -535,14 +991,14 @@
 
         document.getElementById('question-container').innerHTML = html;
 
-        if(q.type === 'fib') {
+        if(q.type === 'fib' && q.inputType === 'input') {
             const inputField = document.getElementById('fib-ans');
             if(inputField) {
                 inputField.oninput = (e) => saveAnswer(q.id, e.target.value.trim());
             }
         }
 
-        if(q.type === 'oral-viva' && typeof studentData.answers[q.id] === 'string' && studentData.answers[q.id].startsWith('data:audio')) {
+        if((q.type === 'oral-viva' || q.type === 'voice-only') && typeof studentData.answers[q.id] === 'string' && studentData.answers[q.id].startsWith('data:audio')) {
             const audioEl = document.getElementById('audio-playback');
             if(audioEl) audioEl.src = studentData.answers[q.id];
         }
@@ -570,14 +1026,13 @@
             try {
                 const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
                 
-                // REPLACE IT WITH THIS (Adds low-bitrate voice compression):
-let options = { 
-    mimeType: 'audio/webm;codecs=opus',
-    audioBitsPerSecond: 32000 // Optimized specifically for speech: tiny file size, instant upload!
-};
-if (!MediaRecorder.isTypeSupported(options.mimeType)) {
-    options = { mimeType: 'audio/webm', audioBitsPerSecond: 32000 };
-}
+                let options = { 
+                    mimeType: 'audio/webm;codecs=opus',
+                    audioBitsPerSecond: 32000 // Optimized speech compression
+                };
+                if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                    options = { mimeType: 'audio/webm', audioBitsPerSecond: 32000 };
+                }
 
                 mediaRecorder = new MediaRecorder(stream, options);
                 audioChunks = [];
@@ -648,6 +1103,7 @@ if (!MediaRecorder.isTypeSupported(options.mimeType)) {
             nextBtn.disabled = true;
         }
 
+        let totalMcqs = examQuestions.filter(q => q.type === 'mcq').length;
         let score = 0;
         examQuestions.forEach(q => {
             if(studentData.answers[q.id] !== undefined) {
@@ -657,7 +1113,7 @@ if (!MediaRecorder.isTypeSupported(options.mimeType)) {
 
         const payload = {
             studentName: `${studentData.name} (${studentData.id})`,
-            score: `${score} / 9 (MCQ Auto-graded sections)`,
+            score: `${score} / ${totalMcqs} (MCQ Auto-graded sections)`,
             answers: studentData.answers
         };
 
@@ -676,25 +1132,6 @@ if (!MediaRecorder.isTypeSupported(options.mimeType)) {
         document.getElementById('timer-badge').classList.add('hidden');
         document.getElementById('view-success').classList.remove('hidden');
         document.getElementById('res-name').innerText = studentData.name;
-
-        // Inject High-Yield HIV Clinical Summary after submission
-        const successView = document.getElementById('view-success');
-        let summaryDiv = document.getElementById('hiv-clinical-summary');
-        if (!summaryDiv) {
-            summaryDiv = document.createElement('div');
-            summaryDiv.id = 'hiv-clinical-summary';
-            summaryDiv.className = 'glass-card p-6 rounded-2xl max-w-2xl mx-auto text-left space-y-4 text-xs sm:text-sm mt-6 border border-indigo-500/30';
-            summaryDiv.innerHTML = `
-                <h3 class="text-base font-bold text-indigo-300 border-b border-slate-800 pb-2">📚 High-Yield Clinical Summary: HIV Pathogenesis & Management</h3>
-                <div class="space-y-3 text-slate-300 leading-relaxed">
-                    <p><strong>1. Structure & Viral Replication:</strong> HIV is a retrovirus possessing single-stranded positive-sense RNA. Inside the virion, reverse transcriptase synthesizes double-stranded DNA from the RNA template. Integrase inserts the viral DNA into the host genome, while viral proteases cleave polyproteins to mature the virion.</p>
-                    <p><strong>2. Pathogenesis & Clinical Stages:</strong> Primary infection often presents with acute retroviral symptoms. Over a long clinical latency period, ongoing viral replication occurs mainly in lymphoid tissue. As CD4+ T-lymphocyte counts decline severely (e.g., &lt;200 cells/µL), opportunistic infections (like Pneumocystis pneumonia) and malignancies (such as Kaposi sarcoma) emerge.</p>
-                    <p><strong>3. Laboratory Diagnosis:</strong> Initial screening relies on ELISA antibody/antigen tests, followed by confirmatory assays such as Western blot or nucleic acid testing (PCR) to detect viral load.</p>
-                    <p><strong>4. Antiretroviral Therapy (ART) Regimens:</strong> Modern treatment utilizes multi-drug combinations (e.g., nucleoside/nucleotide reverse transcriptase inhibitors like tenofovir/emtricitabine, integrase strand transfer inhibitors, and protease inhibitors boosted with ritonavir) to durably suppress viral load and restore immune function.</p>
-                </div>
-            `;
-            successView.appendChild(summaryDiv);
-        }
     }
     
     </script>
